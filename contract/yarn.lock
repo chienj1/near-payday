@@ -516,6 +516,14 @@ assemblyscript@^0.18.25, assemblyscript@^0.18.31:
     binaryen "100.0.0-nightly.20210413"
     long "^4.0.0"
 
+assemblyscript@^0.20.13:
+  version "0.20.13"
+  resolved "https://registry.yarnpkg.com/assemblyscript/-/assemblyscript-0.20.13.tgz#28da2a392172953610b0407c02ee0248b7c723e8"
+  integrity sha512-F4ACXdBdXCBnPEzRCl/ovFFPGmKXQPvWW4cM6U21eRezaCoREqxA0hjSUOYTz7txY3MJclyBfjwMSEJ5e9HKsw==
+  dependencies:
+    binaryen "108.0.0-nightly.20220528"
+    long "^5.2.0"
+
 astral-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
@@ -561,6 +569,11 @@ binaryen@100.0.0-nightly.20210413:
   version "100.0.0-nightly.20210413"
   resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-100.0.0-nightly.20210413.tgz#b7f2a5bb1f76b2d6f9c67486ca218714b3766790"
   integrity sha512-EeGLIxQmJS0xnYl+SH34mNBqVMoixKd9nsE7S7z+CtS9A4eoWn3Qjav+XElgunUgXIHAI5yLnYT2TUGnLX2f1w==
+
+binaryen@108.0.0-nightly.20220528:
+  version "108.0.0-nightly.20220528"
+  resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-108.0.0-nightly.20220528.tgz#55e50ec50dc3cded36ad02e68ec69eb69bbb1e7b"
+  integrity sha512-9biG357fx3NXmJNotIuY9agZBcCNHP7d1mgOGaTlPYVHZE7/61lt1IyHCXAL+W5jUOYgmFZ260PR4IbD19RKuA==
 
 bindings@^1.5.0:
   version "1.5.0"
@@ -1723,6 +1736,11 @@ long@^4.0.0:
   resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
+long@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-5.2.0.tgz#2696dadf4b4da2ce3f6f6b89186085d94d52fd61"
+  integrity sha512-9RTUNjK60eJbx3uz+TEGF7fUr29ZDxR5QzXcyDpeSfeH28S9ycINflOgOlppit5U+4kNTe83KQnMEerw7GmE8w==
+
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
@@ -1872,10 +1890,10 @@ near-api-js@^0.44.2:
     text-encoding-utf-8 "^1.0.2"
     tweetnacl "^1.0.1"
 
-near-cli@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/near-cli/-/near-cli-3.3.0.tgz#08c3b6db494d732a95ff1f2e544e9991ce7edc87"
-  integrity sha512-2sElIySKK2JZ8TkN5lUoKbRIAGdqp0kxvL5Nyb8KyIY7CS26CwvHzXd/ycSS1OewAtXzcRDIjNGKuM9pATG9TQ==
+near-cli@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/near-cli/-/near-cli-3.4.0.tgz#576420f7447f25668e9de89f17e8aaa70930a5d8"
+  integrity sha512-twuq8IO4Ok68542ZlctQy/RRHYY/q6I1Dmub3tuVNUWkOmiViDDEmd1g5X3Lt/tuOkSQl/831o/k03p3MWkaXw==
   dependencies:
     ascii-table "0.0.9"
     bn.js "^5.1.1"

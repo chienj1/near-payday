@@ -1,14 +1,17 @@
 {
-  "name": "near-fluidity-dapp",
+  "name": "near-payday",
   "version": "1.0.0",
   "description": "A fluidity pay build on NEAR",
   "main": "index.js",
-  "author": "chienj1",
+  "author": "John",
   "license": "MIT",
   "devDependencies": {
     "near-sdk-as": "^3.2.3"
   },
   "dependencies": {
-    "near-cli": "^3.3.0"
-  }
+    "asbuild": "^0.2.0",
+    "assemblyscript": "^0.20.13",
+    "near-cli": "^3.4.0"
+  },
+  "repository": "https://github.com/chienj1/near-payday"
 }
