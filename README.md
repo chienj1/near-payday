@@ -1,6 +1,8 @@
 now building
 
 # Contract
+## Create Near testnet account (skip if you already have one)
+## Installation
 After cloning, run the following commands to install:
 cd contract/
 yarn add near-cli
@@ -12,3 +14,4 @@ yarn add -D near-sdk-as
 Then use the following command to compile the program: (the 'near' command is in "./node_modules/near-cli/bin/near", you may want to add it to PATH)
 yarn asb
 near deploy --accountId=${ACCOUNT_ID} --wasmFile=${PATH_TO_WASM} (e.g. build/release/xxxx.wasm)
+
