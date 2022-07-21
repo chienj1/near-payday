@@ -32,12 +32,12 @@ yarn asb
 near deploy --accountId=${ACCOUNT_ID} --wasmFile=${PATH_TO_WASM} (e.g. ./build/release/xxxx.wasm)  
 
 ## Source codes
-contract
-  |- assembly  
-        |- index.ts          dapp logics  
-        |- model.ts          define an object for this dapp  
-        |- as_types.d.ts     
-        |- tsconfig.json  
+contract  
+    |- assembly  
+          |- index.ts          dapp logics  
+          |- model.ts          define an object for this dapp  
+          |- as_types.d.ts     
+          |- tsconfig.json  
 
 ### Functions
 1. Replace "ffpay.looksrare.testnet" with your own contract name if you want to test the one you deployed yourself  
