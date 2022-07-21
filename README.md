@@ -44,7 +44,7 @@ contract
 2. All datetime should be formatted into ISO8601 and be presented in UTC timezone: yyyy-mm-ddThh:mm:ss (capital T is required to separate "date" and "time")  
 
 #### getTimeRatio(beginTime: string, endTime: string): u128[]
-Return a list of [nomiator, denominator] so that you can compute the time passed during payment by nomiator/denominator.  
+Return a list of [nominator, denominator] so that you can compute the time passed during payment by nomiator/denominator.  
 `near call ffpay.looksrare.testnet getTimeRatio '{"beginTime":"2023-04-05T06:12:34.123456789", "endTime":"2023-04-05T07:12:34.123456789"}' --  accountId=${YOUR_ACCOUNT}`  
 #### setPayflow(payflow: Payflow): void  
 Create a job. First deposition is required.  
