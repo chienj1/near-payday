@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 
-const InputAmmount = ({ id, save, description, label }) => {
+const InputAmmount = ({ id, save, description, label, enable }) => {
     const [ammount, setAmmount] = useState("");
     
     const isFormFilled = () => ammount;
@@ -18,8 +18,9 @@ const InputAmmount = ({ id, save, description, label }) => {
             onClick={handleShow}
             className="w-40 py-3"
             variant="outline-dark"
+            disabled={!enable}
           >
-            {description}
+            {enable? description : "All claimed"}
           </Button>
           <Modal show={show} onHide={handleClose} centered>
             <Modal.Header closeButton>

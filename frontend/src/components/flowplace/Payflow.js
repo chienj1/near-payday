@@ -13,7 +13,9 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
           balance, initBalance, available, taken, start } = payflow;
 
   const account = window.walletConnection.account();
-  let isYours = owner === account.accountId || receiver === account.accountId;
+  const youIsSend = owner === account.accountId;
+  const youIsReceive = receiver === account.accountId;
+  
 
   const triggerKillPay  = () => { killpay(id) }; 
   
@@ -21,13 +23,22 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
     startPayment(id, beginTime, endTime, numofpay, receiver).then((resp) => { getPayflows(); });
   } 
 
-
   var [estclaim, estimateClaimable] = useState(0); 
+
+  function getConfinedRatio () {
+    var btime = new Date(beginTime).getTime();
+    var etime = new Date(endTime).getTime();
+    var nowtime = new Date().getTime();
+                                
+    var ratio = ((nowtime-btime)/(etime-btime));
+    var confined_ratio = Math.min(1, Math.max(ratio, 0));
+    return confined_ratio;
+  }
 
   return (
     <>
-    { true ? (
-      <Col key={id} hide={isYours}>
+    { youIsSend || youIsReceive ? (
+      <Col>
         <Card className=" h-100" >
           <Card.Header>
             <Stack direction="horizontal" gap={3}>
@@ -38,36 +49,33 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
                   className="rounded-pill px-0"
                   style={{ width: "36px" }}
                 >
-                  X
+                  x
                 </Button>
               </div>
-              <div>Sender: {owner}</div>
+              <div>From: {owner}</div>
             </Stack>      
           </Card.Header>
           <Card.Body className="d-flex  flex-column text-center">
-            <Card.Title>To {receiver || "unknown"}</Card.Title>
-            <Card.Text className="flex-grow-1 ">{receiver}</Card.Text>
-            <Card.Text className="text-secondary">
+            <Card.Title>To {receiver || "Not set yet"}</Card.Title>
+            <Card.Text className="flex-grow-1">
               <div>balance: {formatNearAmount(balance) || "null"} Near</div>
               <div><hr /></div>
               <div>begin at: {beginTime? new Date(beginTime).toString() : "Not set yet"}</div>
               <div>⇩</div>
               <div>end at: {endTime? new Date(endTime).toString() : "Not set yet"}</div>
+              <div>{getConfinedRatio()*100*start} %</div>
               <div><hr /></div>
-              <div>place holder: {numofpay || "null"}</div>
               { start ? (<div>
                             <div>initBalance: {formatNearAmount(initBalance)} Near</div>
                             <div>claimable: {formatNearAmount(available)} Near</div>
-                            <div>est. claimable: {estclaim} Near 
-                              <Button onClick={ ()=> {
-                                var btime = new Date(beginTime).getTime();
-  				 var etime = new Date(endTime).getTime();
-                                var nowtime = new Date().getTime();
-                                
-                                var ratio = ((nowtime-btime)/(etime-btime));
-                                var confined_ratio = Math.min(1, Math.max(ratio, 0));
-                                var est = initBalance*confined_ratio-taken;
-                 	         estimateClaimable(est/1.0e+24);                                                             
+                            <div>est. claimable: {estclaim} Near {' '}
+                              <Button 
+                                variant="primary"
+                                size="sm"
+                                onClick={ ()=> {
+                                  var confined_ratio = getConfinedRatio();
+                                  var est = initBalance*confined_ratio-taken;
+                 	           estimateClaimable(est/1.0e+24);                                                             
                               }}>
                                 estimate
                               </Button>
@@ -80,12 +88,12 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
               <InputAmmount id={id} save={deposit} description={"Deposit"} enable={true} label={"ammount"}/>
               <StartPayflow id={id} save={enablePayment}/>
             </div>) : (<div>
-              <InputAmmount id={id} save={getpay} description={"Claim"} label={"max: "+(estclaim).toString()+" N"}/>
+              <InputAmmount id={id} save={getpay} description={"Claim"} label={"max: "+(estclaim).toString()+" N"} enable={balance!=0} />
             </div>)}
           </Card.Body>
         </Card>
       </Col>) : (
-        <span>placeholder</span>
+        <span></span>
       )
     }
     </>

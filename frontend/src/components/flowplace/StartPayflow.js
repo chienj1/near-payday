@@ -52,19 +52,6 @@ const StartPayflow = ({ id, save }) => {
                 />
                 </div>
                 <FloatingLabel
-                  controlId="inputNOP"
-                  label="Place holder"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="number"
-                    placeholder="Place holder"
-                    onChange={(e) => {
-                        setNumOfPay(e.target.value);
-                    }}
-                  />
-                </FloatingLabel>
-                <FloatingLabel
                   controlId="inputReceiver"
                   label="Receiver"
                   className="mb-3"
@@ -74,6 +61,20 @@ const StartPayflow = ({ id, save }) => {
                     placeholder="Address"
                     onChange={(e) => {
                         setReceiver(e.target.value);
+                    }}
+                  />
+                </FloatingLabel>
+                               <FloatingLabel
+                  controlId="inputNOP"
+                  label="Place holder"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="number"
+                    placeholder="Place holder"
+                    onChange={(e) => {
+                        setNumOfPay(e.target.value);
+
                     }}
                   />
                 </FloatingLabel>
