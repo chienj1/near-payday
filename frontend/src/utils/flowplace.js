@@ -28,8 +28,8 @@ export async function startPayment(id, beginTime, endTime, numofpay, receiver) {
                                    receiver: receiver }, GAS);
 }
 
-export async function updateAvailable(id) {
-    await window.contract.updateAvailable({ id: id }, GAS);
+export async function updateClaimable(id) {
+    await window.contract.updateClaimable({ id: id }, GAS);
 }
 
 export async function getPayment(id, ammount) {

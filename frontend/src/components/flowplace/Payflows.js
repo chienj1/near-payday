@@ -10,8 +10,7 @@ import {
   getPayflows as getPayflowList,
   depositAssets,
   withdrawAssets,
-  startPayment,
-  updateAvailable,
+  updateClaimable,
   getPayment,
   killPayflow
 } from "../../utils/flowplace";
@@ -72,21 +71,9 @@ const Payflows = () => {
     }
   }
 
-  const enablePayment = async (id, beginTime, endTime, numofpay, receiver) => {
-    try {
-      startPayment(id, beginTime, endTime, numofpay, receiver).then((resp) => { getPayflows(); });
-      toast(<NotificationSuccess text="...." />);
-    } catch (error) {
-      console.log({ error });
-      toast(<NotificationError text="...." />);
-    } finally {
-      setLoading(false);
-    }
-  } // not used
-
   const updatePayflowInfo = async (id) => {
     try {
-      await updateAvailable(id).then((resp) => { getPayflows(); });
+      await updateClaimable(id).then((resp) => { getPayflows(); });
       toast(<NotificationSuccess text="...." />);
     } catch (error) {
       console.log({ error });

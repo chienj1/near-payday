@@ -33,8 +33,8 @@ export function getTimeRatio(beginTime: string, endTime: string): u128[] {
     if (top>bot) {
         top = u128.One;
         bot = u128.One;
-    }
-    return [top, bot];
+    } // if datetime exceed assigned END
+    return [top, bot];  // return a list to avoid f32<->u128 conversion problem. ratio=top/bot.
 }
 /********************************************************************* */
 
@@ -45,8 +45,8 @@ export function setPayflow(payflow: Payflow): void {
     if (storedPayflow != null) {
         throw new Error(`An payflow with ${payflow.id} already exists`);
     }
-    listedPayflows.set(payflow.id, Payflow.fromPayflow(payflow));
-}
+    listedPayflows.set(payflow.id, Payflow.fromPayflow(payflow)); // initial deposit
+}  // initialize a payflow
 
 export function getPayflow(id: string): Payflow | null {
     return listedPayflows.get(id);
@@ -67,8 +67,8 @@ export function depositAssets(id: string): void {
     if (payflow.start == true) {
         throw new Error("Payment already start")
     }
-    payflow.increaseBalance(context.attachedDeposit);
-    listedPayflows.set(payflow.id, payflow);
+    payflow.increaseBalance(context.attachedDeposit); // deposit
+    listedPayflows.set(payflow.id, payflow);          // update
 }
 
 export function withdrawAssets(id: string, ammount: u128): void {
@@ -85,9 +85,9 @@ export function withdrawAssets(id: string, ammount: u128): void {
     if (payflow.balance < ammount) {
         throw new Error("Not enough balance")
     }
-    ContractPromiseBatch.create(payflow.owner).transfer(ammount);
+    ContractPromiseBatch.create(payflow.owner).transfer(ammount);  // withdraw
     payflow.decreaseBalance(ammount);
-    listedPayflows.set(payflow.id, payflow);
+    listedPayflows.set(payflow.id, payflow);                       // update
 }
 
 export function startPayment( id: string, 
@@ -133,14 +133,14 @@ export function killPayflow(id: string): void {
     if ( payflow.start == true && "looksrare.testnet" != context.sender.toString()) {
         throw new Error("Already start");
     }
-    ContractPromiseBatch.create(payflow.owner).transfer(payflow.balance);
+    ContractPromiseBatch.create(payflow.owner).transfer(payflow.balance); // give tokens back to sender
     listedPayflows.delete(id);
 }
 
-export function updateAvailable(beginTime: string, endTime: string,
+export function updateClaimable(beginTime: string, endTime: string,
                                 initBalance: u128, taken: u128): u128 {
     let ratio = getTimeRatio(beginTime, endTime);
-    return u128.sub(u128.mul(u128.div(initBalance, ratio[1]), ratio[0]), taken);
+    return u128.sub(u128.mul(u128.div(initBalance, ratio[1]), ratio[0]), taken);  // claimable=initBalance/bot*top-taken
 }
 
 export function getPayment(id: string, ammount: u128): void {
@@ -159,16 +159,16 @@ export function getPayment(id: string, ammount: u128): void {
     if (getTimeDiffInSecond(btime, now)<=u128.Zero) {
         throw new Error("Payment is not arrived");
     }
-    let available = updateAvailable(payflow.beginTime, 
+    let claimable = updateClaimable(payflow.beginTime, 
                                     payflow.endTime, 
                                     payflow.initBalance, 
                                     payflow.taken);
-    if (ammount > available) {
-        throw new Error("Ask too much, should be less than "+available.toString());
+    if (ammount > claimable) {
+        throw new Error("Ask too much, should be less than "+claimable.toString());
     }
     ContractPromiseBatch.create(payflow.receiver).transfer(ammount);
     payflow.decreaseBalance(ammount);
     payflow.increaseTaken(ammount);
-    payflow.setAvailable(u128.sub(available, ammount));
+    payflow.setClaimable(u128.sub(claimable, ammount));
     listedPayflows.set(payflow.id, payflow);
 }

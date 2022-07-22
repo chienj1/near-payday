@@ -9,8 +9,8 @@ import { formatNearAmount } from "near-api-js/lib/utils/format";
 
 
 const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
-  const { id, beginTime, endTime, numofpay, receiver, owner, 
-          balance, initBalance, available, taken, start } = payflow;
+  const { id, beginTime, endTime, nouse, receiver, owner, 
+          balance, initBalance, claimable, taken, start } = payflow;
 
   const account = window.walletConnection.account();
   const youIsSend = owner === account.accountId;
@@ -56,7 +56,7 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
             </Stack>      
           </Card.Header>
           <Card.Body className="d-flex  flex-column text-center">
-            <Card.Title>To {receiver || "Not set yet"}</Card.Title>
+            <Card.Title>To: {receiver || "Not set yet"}</Card.Title>
             <Card.Text className="flex-grow-1">
               <div>balance: {formatNearAmount(balance) || "null"} Near</div>
               <div><hr /></div>
@@ -67,9 +67,10 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
               <div><hr /></div>
               { start ? (<div>
                             <div>initBalance: {formatNearAmount(initBalance)} Near</div>
-                            <div>claimable: {formatNearAmount(available)} Near</div>
+                            <div>claimable: {formatNearAmount(claimable)} Near</div>
                             <div>est. claimable: {estclaim} Near {' '}
                               <Button 
+                                disabled={balance!=0}
                                 variant="primary"
                                 size="sm"
                                 onClick={ ()=> {
@@ -84,11 +85,26 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
                         </div>) : (null) }
             </Card.Text>
             { !start ? (<div>
-              <InputAmmount id={id} save={withdraw} description={"Withdraw"} enable={true} label={"max: "+(balance/1.0e+24).toString()+" N"}/>
-              <InputAmmount id={id} save={deposit} description={"Deposit"} enable={true} label={"ammount"}/>
+              <InputAmmount 
+                id={id} 
+                save={withdraw} 
+                description={"Withdraw"} 
+                enable={true} 
+                label={"max: "+(balance/1.0e+24).toString()+" N"}/>
+              <InputAmmount 
+                id={id} 
+                save={deposit} 
+                description={"Deposit"} 
+                enable={true} 
+                label={"ammount"}/>
               <StartPayflow id={id} save={enablePayment}/>
             </div>) : (<div>
-              <InputAmmount id={id} save={getpay} description={"Claim"} label={"max: "+(estclaim).toString()+" N"} enable={balance!=0} />
+              <InputAmmount 
+                id={id} 
+                save={getpay} 
+                description={"Claim"} 
+                label={"max: "+(estclaim).toString()+" N"} 
+                enable={balance!=0} />
             </div>)}
           </Card.Body>
         </Card>

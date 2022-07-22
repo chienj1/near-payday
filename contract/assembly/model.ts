@@ -11,7 +11,7 @@ export class Payflow {
     balance: u128;
 
     initBalance: u128;
-    available: u128;
+    claimable: u128;
     taken: u128;
     start: bool;
     public static fromPayflow(_payflow: Payflow): Payflow {
@@ -41,12 +41,12 @@ export class Payflow {
     }
     public setStart(): void {
         this.initBalance = this.balance;
-        this.available = u128.Zero;
+        this.claimable = u128.Zero;
         this.taken = u128.Zero;
         this.start = true;
     }
-    public setAvailable(ammount: u128): void {
-        this.available = ammount;
+    public setClaimable(ammount: u128): void {
+        this.claimable = ammount;
     }
     public setTaken(ammount: u128): void {
         this.taken = ammount;
