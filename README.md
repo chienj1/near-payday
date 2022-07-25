@@ -2,8 +2,8 @@
 Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.
 
 ROOT of project  
-| - contract  
-| - frontend  
+  - contract  
+  - frontend  
 
 # Contract
 
@@ -11,10 +11,10 @@ ROOT of project
 After cloning, run the following commands to install:  
 ```
 cd contract/  
-yarn add near-cli  
+yarn init 
+yarn add near-cli        //yarn global add near-cli if you want to install globally  
 yarn add assemblyscript  
 yarn add asbuild  
-yarn init  
 yarn add -D near-sdk-as  
 ```
 Then use the following command to compile and deploy the program on NEAR testnet:  
@@ -33,19 +33,14 @@ The following command are to manage child accounts:
 ### send NEAR
 `near send ${SENDER_ACCOUNT}.testnet ${RECEIVER_ACCOUNT}.testnet ${AMMOUNT_TO_SEND}`
 
-## On-chain contract
-The contract already deployed is called "ffpay.looksrare.testnet."
-
-
-
 ## Source codes
-contract  
-    |- assembly  
-          |- index.ts          dapp logics  
-          |- model.ts          define an object for this dapp  
-          |- as_types.d.ts     
-          |- tsconfig.json  
-
+  - contract  
+    - assembly  
+      - index.ts          (dapp logics)
+      - model.ts          (define an object for this dapp)
+      - as_types.d.ts     
+      - tsconfig.json
+        
 ### Functions
 1. Replace "ffpay.looksrare.testnet" with your own contract name if you want to test the one you deployed yourself  
 2. All datetime should be formatted into ISO8601 and be presented in UTC timezone: yyyy-mm-ddThh:mm:ss (capital T is required to separate "date" and "time")  
