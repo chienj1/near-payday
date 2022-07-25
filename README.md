@@ -9,7 +9,8 @@ Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, consta
 # Contract
 1. A contract can be interact through `near-cli` or through a front-end, whose code is provided in ./frontend.  
 2. Install `near-cli` with `yarn add near-cli` (or `yarn global add near-cli` if you want to install globally)    
-3. the 'near' command is in "./node_modules/near-cli/bin/near", you may want to add it to PATH.  
+3. the 'near' command is in "./node_modules/near-cli/bin/near", you may want to add it to PATH. 
+4. The deployed contract is called `ffpay.looksrare.testnet`. 
 
 ## Installation
 After cloning, run the following commands to install:  
@@ -91,7 +92,7 @@ e.g. `near call ${CONTRACT_ACCOUNT}.testnet getPayment '{"id":"123", "ammount":"
 
  src/utils/config.js
  const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
-
+https://chienj1.github.io/near-payday.
 
 
 
