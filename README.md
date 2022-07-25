@@ -1,6 +1,7 @@
 *now building  
-Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.
+Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.  
 
+There are two parts in this project: smart contract and the corresponding React frontend. Click the link below for description.
   - ROOT of project  
     - [contract](https://github.com/chienj1/near-payday/edit/main/README.md#Contract)
     - [frontend](https://github.com/chienj1/near-payday/edit/main/README.md#Front-end)
