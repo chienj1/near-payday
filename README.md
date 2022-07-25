@@ -46,6 +46,9 @@ The following command are to manage child accounts:
 ### Functions
 1. All datetime should be formatted into ISO8601 and be presented in UTC timezone: yyyy-mm-ddThh:mm:ss (capital T is required to separate "date" and "time")  
 2. Functions has limited accessibility considering the account's status and the time right now. Please refer to source codes or returned message from blockchain.
+3. The dapp workflow is as below. Not all functions are included.
+
+![image](https://github.com/chienj1/near-payday/blob/main/doc/workflow.png)
 
 #### getTimeRatio(beginTime: string, endTime: string): u128[]
 Return a list of [nominator, denominator] so that you can compute the time passed during payment by nomiator/denominator. If the end time is already passed, it will return [1, 1].  
