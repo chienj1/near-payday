@@ -1,5 +1,5 @@
-*now building
-Near Payday (v1) is a dapp that can help you to send NEAR with a constant rate within a assigned time span.
+*now building  
+Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.
 
 Near-payday  
   |- contract  
