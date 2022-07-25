@@ -45,37 +45,38 @@ The following command are to manage child accounts:
         
 ### Functions
 1. All datetime should be formatted into ISO8601 and be presented in UTC timezone: yyyy-mm-ddThh:mm:ss (capital T is required to separate "date" and "time")  
+2. Functions has limited accessibility considering the account's status and the time right now. Please refer to source codes or returned message from blockchain.
 
 #### getTimeRatio(beginTime: string, endTime: string): u128[]
-Return a list of [nominator, denominator] so that you can compute the time passed during payment by nomiator/denominator.  
-`near call ${CONTRACT_ACCOUNT}.testnet getTimeRatio '{"beginTime":"2023-04-05T06:12:34.123456789", "endTime":"2023-04-05T07:12:34.123456789"}' --  accountId=${YOUR_ACCOUNT}`  
+Return a list of [nominator, denominator] so that you can compute the time passed during payment by nomiator/denominator. If the end time is already passed, it will return [1, 1].  
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet getTimeRatio '{"beginTime":"2023-04-05T06:12:34.123456789", "endTime":"2023-04-05T07:12:34.123456789"}' --  accountId=${YOUR_ACCOUNT}`  
 #### setPayflow(payflow: Payflow): void  
 Create a job. First deposition is required.  
-`near call ${CONTRACT_ACCOUNT}.testnet setPayflow '{"payflow":{"id": "1"}}' --accountId=${SENDER_ACCOUNT} --depositYocto=1000000000000000000000000  // 1.0 NEAR`  
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet setPayflow '{"payflow":{"id": "1"}}' --accountId=${SENDER_ACCOUNT} --depositYocto=1000000000000000000000000  // 1.0 NEAR`  
 #### getPayflow(id: string): Payflow | null
 Return a job with id.  
-`near view ${CONTRACT_ACCOUNT}.testnet getPayflow '{"id":"1"}' --accountId=${YOUR_ACCOUNT}`
+e.g. `near view ${CONTRACT_ACCOUNT}.testnet getPayflow '{"id":"1"}' --accountId=${YOUR_ACCOUNT}`
 #### getPayflows(): Payflow[]
 Return all existing jobs.  
-`near view ${CONTRACT_ACCOUNT}.testnet getPayflows --accountId=${YOUR_ACCOUNT}`
+e.g. `near view ${CONTRACT_ACCOUNT}.testnet getPayflows --accountId=${YOUR_ACCOUNT}`
 #### depositAssets(id: string): void
 Deposit more into a existing job.  
-`near call ${CONTRACT_ACCOUNT}.testnet depositAssets '{"id":"1"}' --accountId=${SENDER_ACCOUNT} --depositYocto=10000000000000000000000`
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet depositAssets '{"id":"1"}' --accountId=${SENDER_ACCOUNT} --depositYocto=10000000000000000000000`
 #### withdrawAssets(id: string, ammount: u128): void
 Withdraw from a existing job.  
-`near call ${CONTRACT_ACCOUNT}.testnet withdrawAssets '{"id":"1", "ammount":"5000000"}' --accountId=${SENDER_ACCOUNT}`
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet withdrawAssets '{"id":"1", "ammount":"5000000"}' --accountId=${SENDER_ACCOUNT}`
 #### startPayment( id: string, beginTime: string, endTime: string, numofpay: i32, receiver: string ): void  
 Set up the time span of paying, the receiver account, a placeholder. No modification or cancellation is available after the job starts.  
-`near call ${CONTRACT_ACCOUNT}.testnet startPayment '{"id":"1", "beginTime":"2022-06-02T01:00:00.000000000","endTime":"2022-06-03T10:00:00.000000000", "numofpay":2, "receiver":"employee.looksrare.testnet"}' --accountId=${SENDER_ACCOUNT}`
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet startPayment '{"id":"1", "beginTime":"2022-06-02T01:00:00.000000000","endTime":"2022-06-03T10:00:00.000000000", "numofpay":2, "receiver":"employee.looksrare.testnet"}' --accountId=${SENDER_ACCOUNT}`
 #### killPayflow(id: string): void
 Remove a non-start job.  
-`near call ${CONTRACT_ACCOUNT}.testnet killPayflow '{"id":"1"}'  --accountId=${YOUR_ACCOUNT}`
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet killPayflow '{"id":"1"}'  --accountId=${YOUR_ACCOUNT}`
 #### updateAvailable(beginTime: string, endTime: string, initBalance: u128, taken: u128): u128
 To know how much is currently available to withdraw.  
-`near call ${CONTRACT_ACCOUNT}.testnet updateAvailable '{"beginTime":"2022-06-06T10:45:00.123456789", "endTime":"2022-06-06T20:45:00.123456789", "initBalance":"100", "taken":"0"}' --accountId=${YOUR_ACCOUNT}`
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet updateAvailable '{"beginTime":"2023-04-05T06:12:34.123456789", "endTime":"2023-04-05T07:12:34.123456789", "initBalance":"100", "taken":"0"}' --accountId=${YOUR_ACCOUNT}`
 #### getPayment(id: string, ammount: u128): void
 Claim the available ammount of pay.  
-`near call ${CONTRACT_ACCOUNT}.testnet getPayment '{"id":"1", "ammount":"50"}' --accountId=${RECIEVER_ACCOUNT}`
+e.g. `near call ${CONTRACT_ACCOUNT}.testnet getPayment '{"id":"1", "ammount":"50"}' --accountId=${RECIEVER_ACCOUNT}`
 
 
 
@@ -83,7 +84,7 @@ Claim the available ammount of pay.
 
 
 
-#Front-end
+# Front-end
 
  src/utils/config.js
  const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
