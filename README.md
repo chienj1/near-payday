@@ -90,7 +90,7 @@ e.g. `near call ${CONTRACT_ACCOUNT}.testnet getPayment '{"id":"123", "ammount":"
 
 
 # Front-end
-
+create a .env file and add Contractname=...
  src/utils/config.js
  const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
 https://chienj1.github.io/near-payday.

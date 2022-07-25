@@ -70,7 +70,7 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
                             <div>claimable: {formatNearAmount(claimable)} Near</div>
                             <div>est. claimable: {estclaim} Near {' '}
                               <Button 
-                                disabled={balance!=0}
+                                disabled={balance==0}
                                 variant="primary"
                                 size="sm"
                                 onClick={ ()=> {

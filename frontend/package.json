@@ -1,5 +1,5 @@
 {
-  "homepage": "https://chienj1.github.io/near-payday-web",
+  "homepage": "https://chienj1.github.io/near-payday",
   "name": "near-payday",
   "version": "0.1.0",
   "private": true,
@@ -10,6 +10,7 @@
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.9.1",
     "buffer": "^6.0.3",
+    "dotenv": "^16.0.1",
     "gh-pages": "^4.0.0",
     "near-api-js": "^0.45.1",
     "process": "^0.11.10",
