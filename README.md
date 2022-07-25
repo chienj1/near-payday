@@ -3,7 +3,7 @@ Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, consta
 
   - ROOT of project  
     - [contract](https://github.com/chienj1/near-payday/edit/main/README.md#Contract)
-    - frontend  
+    - [frontend](https://github.com/chienj1/near-payday/edit/main/README.md#Front-end)
     - doc
 
 # Contract
@@ -83,9 +83,10 @@ Claim the available ammount of pay.
 
 
 
+#Front-end
 
-
-
+ src/utils/config.js
+ const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
 
 
 
