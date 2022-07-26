@@ -1,4 +1,6 @@
-Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.  
+The demo is accessible [here](https://chienj1.github.io/near-payday/).
+
+Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span. Basically, Superfluid.  
   
 ![image_mech](https://github.com/chienj1/near-payday/blob/main/doc/mechanism.png)
 
@@ -10,7 +12,6 @@ There are two parts in this project: smart contract and the corresponding React 
     - doc
 
 # Front-end
-The website is accessible [here](https://chienj1.github.io/near-payday/).
 
 ## Installation
 After cloning, run the following commands to install the dependencies: 
