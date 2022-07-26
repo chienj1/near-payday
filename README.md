@@ -21,8 +21,15 @@ Then run the following commands to test the website:
 ```
 npm start
 ```
-## Contract Functions Behind UI
 
+## How to Use
+![image_UI](https://github.com/chienj1/near-payday/blob/main/doc/src%20UI%20relation.png)
+
+
+
+## Contract Functions Behind UI
+For the description of each function, please refer to the [section](https://github.com/chienj1/near-payday/edit/main/README.md#functions) below.  
+![image_contract](https://github.com/chienj1/near-payday/blob/main/doc/src%20contract%20relation.png)
 
 
 # Contract
