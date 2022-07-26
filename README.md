@@ -1,4 +1,5 @@
 Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.  
+  
 ![image_mech](https://github.com/chienj1/near-payday/blob/main/doc/mechanism.png)
 
 
@@ -35,6 +36,7 @@ npm start
 8. Confirm the transaction. 
 9. The card will show more info now. 
 10. Upon the time arrive, login with the receiver account, and you can claim a portion of the balance by clicking "Claim."
+11. The "x" on the upper left of each card is used to delete a payflow. The balance will be return to the sender if the payflow is not started.
 
 ### Notice
   - Once the payflow starts, the sender cannot do anything about it.
