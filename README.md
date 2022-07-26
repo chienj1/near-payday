@@ -1,21 +1,27 @@
-*now building  
+*now building* 
 Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.  
 
 There are two parts in this project: smart contract and the corresponding React frontend. Click the link below for description.
-  - ROOT of project  
+  - ROOT 
     - [frontend](https://github.com/chienj1/near-payday/edit/main/README.md#Front-end)
     - [contract](https://github.com/chienj1/near-payday/edit/main/README.md#Contract)
     - doc
 
 # Front-end
-The website is accessible [here](https://chienj1.github.io/near-payday/)
+The website is accessible [here](https://chienj1.github.io/near-payday/)  
 
-create a .env file and add Contractname=...
- src/utils/config.js
- const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
-https://chienj1.github.io/near-payday.
+## Installation
+After cloning, run the following commands to install the dependencies: 
+```
+npm install
+```
+Edit the variable `REACT_APP_CONTRACT_NAME` in the file `./frontend/.example.env` to your account of contract.  
+> use `ffpay.looksrare.testnet` if you have problem deploying your own contract.
 
-
+Then run the following commands to test the website:
+```
+npm start
+```
 
 # Contract
 1. A contract can be interact through `near-cli` or through a front-end, whose code is provided in ./frontend.  
