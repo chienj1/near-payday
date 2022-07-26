@@ -44,10 +44,12 @@ npm start
   - The time showed depends on your local timezone, while the on-chain one are recorded in UTC timezone. 
 
 ## Layout Structure from Source Code
+  
 ![image_UI](https://github.com/chienj1/near-payday/blob/main/doc/src%20UI%20relation.png)
 
 ## Contract Functions Behind UI
-For the description of each function, please refer to the [section](https://github.com/chienj1/near-payday/edit/main/README.md#functions) below.  
+For the description of each function, please refer to the [section](https://github.com/chienj1/near-payday/README.md#functions) below.  
+  
 ![image_contract](https://github.com/chienj1/near-payday/blob/main/doc/src%20contract%20relation.png)
 
 
