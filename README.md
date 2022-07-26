@@ -7,25 +7,38 @@ There are two parts in this project: smart contract and the corresponding React 
     - doc
 
 # Front-end
-The website is accessible [here](https://chienj1.github.io/near-payday/)  
+The website is accessible [here](https://chienj1.github.io/near-payday/).
 
 ## Installation
 After cloning, run the following commands to install the dependencies: 
 ```
 npm install
 ```
-Edit the variable `REACT_APP_CONTRACT_NAME` in the file `./frontend/.example.env` to your account of contract.  
+Secondly, edit the variable `REACT_APP_CONTRACT_NAME` in the file `./frontend/.example.env` to your account of contract.  
 > use `ffpay.looksrare.testnet` if you have problem deploying your own contract.
+Rename of file from `.example.env` to `.env`.
 
 Then run the following commands to test the website:
 ```
 npm start
 ```
-
 ## How to Use
+1. Login with your Near testnet account.
+2. Click button with "+" sign on the upper right of the website.
+3. Enter the number of Near to be sent in the pop-up then click "Save".
+4. Confirm the transaction.
+5. A new card with three buttons will show up. You can deposit more or withdraw freely with "Deposit" and "Withdraw."
+6. Once you deposit the ammount to be sent, click black "Start" button.
+7. Select the starting and ending date-time, enter the address to receive, and a placeholder integer number, then click "Start."
+8. Confirm the transaction. 
+9. The card will show more info now. 
+10. Upon the time arrive, login with the receiver account, and you can claim a portion of the balance by clicking "Claim."
+
+### Notice
+  - 
+
+## Layout Structure from Source Code
 ![image_UI](https://github.com/chienj1/near-payday/blob/main/doc/src%20UI%20relation.png)
-
-
 
 ## Contract Functions Behind UI
 For the description of each function, please refer to the [section](https://github.com/chienj1/near-payday/edit/main/README.md#functions) below.  
