@@ -43,13 +43,39 @@ npm start
   - The "claimable" is computed by smart contract and will not update until every claim from the receiver, while "est. claimable," as well as the number hint showed in claiming pop-up, are computed by front-end.
   - The time showed depends on your local timezone, while the on-chain one are recorded in UTC timezone. 
 
+## Source codes
+  - frontend  
+    - src  
+      - assets/img            (image used)
+      - components
+        - flowplace           (main logic)
+          - Payflows.js
+          - Payflow.js
+          - AddPayflow.js
+          - InputAmmount.js
+          - StartPayflow.js
+        - utils               (general website behavior, remain original) 
+          - ...
+        - Wallet.js
+      - utils                 (connection of blockchain, remain original except for flowplace.js) 
+        - config.js
+        - near.js
+        - flowplace.js
+      - App.js
+      - index.js
+      - ...
+    - public
+      - index.html
+    - .env
+
+
 ## Layout Structure from Source Code
   
 ![image_UI](https://github.com/chienj1/near-payday/blob/main/doc/src%20UI%20relation.png)
 
 ## Contract Functions Behind UI
-For the description of each function, please refer to the [section](https://github.com/chienj1/near-payday/README.md#functions) below.  
-  
+For the description of each function, please refer to the [section](https://github.com/chienj1/near-payday/blob/main/README.md#functions) below.  
+ 
 ![image_contract](https://github.com/chienj1/near-payday/blob/main/doc/src%20contract%20relation.png)
 
 
@@ -129,6 +155,7 @@ e.g. `near call ${CONTRACT_ACCOUNT}.testnet updateAvailable '{"beginTime":"2023-
 Claim the available ammount of pay.  
 e.g. `near call ${CONTRACT_ACCOUNT}.testnet getPayment '{"id":"123", "ammount":"500000000"}' --accountId=${RECIEVER_ACCOUNT}`
 
-
+# Acknowledgement
+The learning materials and a part of the source codes can be accessible in [decade.org](https://dacade.org/communities/near/courses/near-101/).
 
 
