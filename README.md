@@ -1,4 +1,3 @@
-*now building* 
 Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.  
 
 There are two parts in this project: smart contract and the corresponding React frontend. Click the link below for description.
@@ -22,6 +21,9 @@ Then run the following commands to test the website:
 ```
 npm start
 ```
+## Contract Functions Behind UI
+
+
 
 # Contract
 1. A contract can be interact through `near-cli` or through a front-end, whose code is provided in ./frontend.  
@@ -66,7 +68,7 @@ The following command are to manage child accounts:
 2. Functions has limited accessibility considering the account's status and the time right now. Please refer to source codes or returned message from blockchain.
 3. The dapp workflow is as below. Not all functions are included.
 
-![image](https://github.com/chienj1/near-payday/blob/main/doc/workflow.png)
+![workflow](https://github.com/chienj1/near-payday/blob/main/doc/workflow.png)
 
 #### getTimeRatio(beginTime: string, endTime: string): u128[]
 Return a list of [nominator, denominator] so that you can compute the time passed during payment by nomiator/denominator. If the end time is already passed, it will return [1, 1].  
