@@ -3,9 +3,19 @@ Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, consta
 
 There are two parts in this project: smart contract and the corresponding React frontend. Click the link below for description.
   - ROOT of project  
-    - [contract](https://github.com/chienj1/near-payday/edit/main/README.md#Contract)
     - [frontend](https://github.com/chienj1/near-payday/edit/main/README.md#Front-end)
+    - [contract](https://github.com/chienj1/near-payday/edit/main/README.md#Contract)
     - doc
+
+# Front-end
+The website is accessible [here](https://chienj1.github.io/near-payday/)
+
+create a .env file and add Contractname=...
+ src/utils/config.js
+ const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
+https://chienj1.github.io/near-payday.
+
+
 
 # Contract
 1. A contract can be interact through `near-cli` or through a front-end, whose code is provided in ./frontend.  
@@ -82,19 +92,6 @@ e.g. `near call ${CONTRACT_ACCOUNT}.testnet updateAvailable '{"beginTime":"2023-
 #### getPayment(id: string, ammount: u128): void
 Claim the available ammount of pay.  
 e.g. `near call ${CONTRACT_ACCOUNT}.testnet getPayment '{"id":"123", "ammount":"500000000"}' --accountId=${RECIEVER_ACCOUNT}`
-
-
-
-
-
-
-
-# Front-end
-create a .env file and add Contractname=...
- src/utils/config.js
- const CONTRACT_NAME = process.env.CONTRACT_NAME || "${CONTRACT_NAME}";
-https://chienj1.github.io/near-payday.
-
 
 
 
