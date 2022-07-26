@@ -1,4 +1,6 @@
 Near Payday (v1) is a dapp that can help you to send NEAR with a delayed, constant rate within a assigned time span.  
+![image_mech](https://github.com/chienj1/near-payday/blob/main/doc/mechanism.png)
+
 
 There are two parts in this project: smart contract and the corresponding React frontend. Click the link below for description.
   - ROOT 
@@ -35,7 +37,9 @@ npm start
 10. Upon the time arrive, login with the receiver account, and you can claim a portion of the balance by clicking "Claim."
 
 ### Notice
-  - 
+  - Once the payflow starts, the sender cannot do anything about it.
+  - The "claimable" is computed by smart contract and will not update until every claim from the receiver, while "est. claimable," as well as the number hint showed in claiming pop-up, are computed by front-end.
+  - The time showed depends on your local timezone, while the on-chain one are recorded in UTC timezone. 
 
 ## Layout Structure from Source Code
 ![image_UI](https://github.com/chienj1/near-payday/blob/main/doc/src%20UI%20relation.png)
