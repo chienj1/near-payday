@@ -1,6 +1,4 @@
-require('dotenv').config() 
-const CONTRACT_NAME = process.env.CONTRACT_NAME;
-// || "ffpay.looksrare.testnet";
+const CONTRACT_NAME = process.env.REACT_APP_CONTRACT_NAME;
 
 function environment(env) {
   switch (env) {

@@ -31,7 +31,7 @@ const StartPayflow = ({ id, save }) => {
             </Modal.Header>
             <Form>
               <Modal.Body>
-              	<div> Begin Time
+              	<div> Begin Time	
                 <DateTimePicker 
                   value={beginTime}
                   clearIcon={null} 
@@ -41,7 +41,7 @@ const StartPayflow = ({ id, save }) => {
                   }} 
                 />
                 </div>
-                <div> End Time
+                <div> End Time	
                 <DateTimePicker 
                   value={endTime}
                   clearIcon={null} 
