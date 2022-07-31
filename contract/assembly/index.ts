@@ -53,7 +53,16 @@ export function getPayflow(id: string): Payflow | null {
 }
 
 export function getPayflows(): Payflow[] {
-    return listedPayflows.values();
+    let payflows: Payflow[] = [];
+
+    let allPayflows = listedPayflows.values();
+
+    for(let i=0; i<allPayflows.length; i++){
+        if(allPayflows[i].owner === context.sender.toString() || allPayflows[i].receiver === context.sender.toString()){
+            payflows.push(allPayflows[i]);
+        }
+    }
+    return payflows;
 }
 
 export function depositAssets(id: string): void {
@@ -101,6 +110,9 @@ export function startPayment( id: string,
     }
     if (payflow.owner != context.sender.toString()) {
         throw new Error("Not your payflow");
+    }
+    if (payflow.receiver == context.sender.toString()) {
+        throw new Error("Cannot send a payflow to yourself");
     }
     if (payflow.start == true) {
         throw new Error("Payment already start");
